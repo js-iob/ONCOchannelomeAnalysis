@@ -48,6 +48,7 @@ text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers,col="red")
 
 
 #Adjacency matrix
+# Choose the softPower value based on the scale-free topology plot for each tumor type. Our analysis powers are mentioned in the Supplementary table S5.
 softPower = 12
 adjacency = adjacency(dat, power = softPower, type = "signed")
 dissTOM = 1-TOMsimilarity(adjacency, TOMType="signed")
@@ -70,7 +71,7 @@ plotDendroAndColors(geneTree, dynamicColors, "Dynamic Tree Cut",
                     addGuide = TRUE, guideHang = 0.05,
                     main = "hnsc_MT")
 
-
+#For correlation of modules with trait data both metastatic and primary tumor were checked 
 par(mfrow=c(1,1))
 traitdata = read.csv("tumor_mt_trait.txt", sep = '\t',header = TRUE)
 patient = rownames(dat)
@@ -83,7 +84,7 @@ nSamples = nrow(dat)
 MEs0 = moduleEigengenes(dat, dynamicColors)$eigengenes
 MEs1 = orderMEs(MEs0)
 MEs1
-write.table(MEs1, file = "hnsc_mt_ME.txt", sep="\t")
+write.table(MEs1, file = "tumor_mt_ME.txt", sep="\t")
 moduleTraitCor = cor(MEs1, datTraits, use = "p")
 moduleTraitPvalue = corPvalueStudent(moduleTraitCor, nSamples)
 textMatrix = paste(signif(moduleTraitCor, 2), "\n(",signif(moduleTraitPvalue, 1), ")", sep = "")
@@ -113,6 +114,9 @@ geneTraitSignificance = as.data.frame(cor(dat, metastatic, use = "p"))
 GSPvalue = as.data.frame(corPvalueStudent(as.matrix(geneTraitSignificance), nSamples))
 names(geneTraitSignificance) = paste("GS.", names(metastatic), sep="")
 names(GSPvalue) = paste("p.GS.", names(metastatic), sep="")
+
+#Modules selected based on the plots obtained is mentioned in supplementary table S5
+
 module = "blue"
 column = match(module, modNames)
 moduleGenes = dynamicColors==module

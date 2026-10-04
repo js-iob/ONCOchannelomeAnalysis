@@ -48,6 +48,7 @@ if (length(constant_columns) > 0) {
 } else {
   print("No constant columns detected")}
 
+#The numbers provided here are artitary placeholders. Number of samples in each of the cohort and biological state are as per mentioned in Table 1 and 2 in the manuscript
 # Create batch vector
 batch <- c(rep("GTEX",279), rep("TCGA", 571), rep("MET500", 1))
 
