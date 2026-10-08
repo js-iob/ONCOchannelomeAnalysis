@@ -1,6 +1,6 @@
 #Author: K.T.Shreya
-#Date: 29/04/2024
-#Purpose: Estimate differentially expressed ion channels in RNA-Seq fpkm datasets of patients with cancer (limma) post removin batch effects
+#Date: 09/08/2026
+#Purpose: Estimate differentially expressed ion channels in RNA-Seq fpkm datasets of patients with cancer (limma) post removing batch effects
 rm(list = ls())
 setwd('path\\to\\working\\directory')
 #Importing libraries
