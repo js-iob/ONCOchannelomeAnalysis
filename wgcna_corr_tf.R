@@ -1,5 +1,5 @@
 #Author: K.T.Shreya
-#Date: 10/12/2024
+#Date: 09/08/2026
 #Purpose: Estimate co-expressed ion channels from RNA-seq datasets of patients with cancer (WGCNA)
 rm(list = ls())
 #Import libraries
